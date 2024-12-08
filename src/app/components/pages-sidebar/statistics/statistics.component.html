@@ -1,0 +1,30 @@
+<div style="display:flex;">
+    <div style="display: inline-flex;width: 30%;">
+        <div>
+        <span class="pi pi-home" routerLink=""
+              style="color: rgb(5,74,105);font-size: 18px;font-weight: 700;  cursor: pointer;margin-top: 3px;"></span>
+        </div>
+        <span class="page-title font-medium ml-2">/ STATISTICS </span>
+    </div>
+    <div style="width: 42%; text-align: center;">
+        <button (click)="selectedButton = 0" [ngClass]="{'selected-button': selectedButton === 0}" [routerLink]="['/stats']" class="p-button mr-2" icon="bi bi-list-columns"
+                label="Dashboard"
+                pButton
+                pRipple
+                style="max-width: 130px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+        </button>
+        <button (click)="selectedButton = 1" [ngClass]="{'selected-button': selectedButton === 1}" [routerLink]="['/stats/sat-leaderboard']" class="p-button mr-2" icon="bi bi-file-bar-graph"
+                label="Satellites"
+                pButton
+                pRipple
+                style="max-width: 120px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+        </button>
+        <button (click)="selectedButton = 2" [ngClass]="{'selected-button': selectedButton === 2}" [routerLink]="['/stats/user-leaderboard']" class="p-button mr-2" icon="bi bi-file-bar-graph"
+                label="Ground Stations"
+                pButton
+                pRipple
+                style="max-width: 200px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+        </button>
+    </div>
+</div>
+<h1>dashboard is working</h1>

@@ -1,0 +1,135 @@
+.dashboard-container {
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: white;
+    background-color: rgb(5, 74, 105);
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+p {
+    font-size: 16px;
+    margin-top: 15px;
+    font-weight: 700;
+    color: #054A69
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    gap: 10px;
+    padding-left: 17px;
+}
+
+.card {
+    width: 100%;
+    background-color: rgb(5, 74, 105);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 40.5rem;
+    padding: .5rem;
+}
+
+.card img {
+    max-width: 100%;
+    max-height: 250px;
+    /*height: auto;*/
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-text h3 {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.card-text p {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.card-button-container {
+    margin-top: 15px;
+}
+
+.card-button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card:hover {
+    background-color: rgb(7, 52, 68) !important;
+}
+
+
+.custom-list {
+    list-style-type: none;
+    padding-left: 0;
+    width: 100%
+}
+
+.custom-list-contributor {
+    width: 210px;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.custom-icon {
+    font-size: 1.5rem;
+    padding-right: 10px;
+    color: #054A69;
+
+}
+
+.custom-divider {
+    border-top: 1px solid #ccc;
+    margin-top: 1px;
+    margin-bottom: 5px;
+}
+
+.custom-header {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+
+}
+
+ul li {
+    gap: 10px;
+}
+
+::ng-deep .p-orderlist .p-orderlist-controls {
+    display: none;
+}
+
+::ng-deep .p-orderlist .p-orderlist-header {
+    background-color: rgb(5, 74, 105) !important;
+    color: white;
+}
+
+::ng-deep .p-orderlist .p-orderlist-filter-container .p-orderlist-filter-input {
+    background-color: #b9ced873;
+    border-radius: 10px;
+}

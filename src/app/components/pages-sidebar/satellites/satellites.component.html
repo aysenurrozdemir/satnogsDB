@@ -1,0 +1,208 @@
+<div>
+    <div style="display: inline-flex;">
+        <span class="pi pi-home" routerLink=""
+              style="color: rgb(5,74,105);font-size: 18px;font-weight: 700;  cursor: pointer;"></span>
+    </div>
+    <span class="page-title font-medium ml-2">/ SATELLITES </span>
+</div>
+
+<p-toolbar class="col-12" styleClass="mb-4 toolbar-container">
+
+    <ng-template pTemplate="center">
+        <div class="search-container">
+            <span class="p-input-icon-left" style="width: 300px;">
+                <i class="pi pi-search" style="margin-right: 5px;"></i>
+                <input (input)="dt.filterGlobal($event.target.value, 'contains')" class="search-input" pInputText
+                       placeholder="Search Name"
+                       style="background-color: white;"
+                       type="text"/>
+            </span>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="left">
+        <p-multiSelect (onChange)="onColumnSelect($event)"
+                       [(ngModel)]="selectedColumns"
+                       [options]="cols"
+                       [style]="{ 'min-width': '200px' }"
+                       optionLabel="header"
+                       placeholder="Choose Columns"
+                       selectedItemsLabel="{0} columns selected">
+        </p-multiSelect>
+    </ng-template>
+
+    <ng-template pTemplate="right">
+        <button (click)="selectedExportExcel()" class="p-button mr-2" icon="pi pi-file-excel" label="Selected" pButton
+                pRipple
+                style="max-width: 100px; background-color: #054A69; border-radius: 15px;"></button>
+        <button (click)="exportExcel()" class="p-button" icon="pi pi-file-excel" label="All" pButton
+                pRipple
+                style="max-width: 100px; background-color: #054A69; border-radius: 15px;"></button>
+    </ng-template>
+</p-toolbar>
+
+<div style="max-height: 700px; overflow: auto;">
+    <p-table #dt
+             [(selection)]="selectedSatelliteDatas"
+             [columns]="mainTableColumns"
+             [exportHeader]="'customExportHeader'"
+             [globalFilterFields]="['name']"
+             [paginator]="true"
+             [rowHover]="true"
+             [rowsPerPageOptions]="[10, 25, 50]"
+             [rows]="10"
+             [showCurrentPageReport]="true"
+             [tableStyle]="{ 'min-width': '75rem' }"
+             [value]="satellitesData"
+             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+             dataKey="identifier"
+             styleClass="p-datatable-striped">
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <ng-container *ngFor="let column of mainTableColumns">
+                    <ng-container *ngIf="column.field">
+                        <th pSortableColumn="{{ column.field }}">
+                            {{ column.header }}
+                            <p-sortIcon field="{{ column.field }}"></p-sortIcon>
+                        </th>
+                    </ng-container>
+                </ng-container>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <ng-container *ngFor="let column of mainTableColumns">
+                    <ng-container *ngIf="column.field">
+                        <th pSortableColumn="{{ column.field }}">
+                            <p-columnFilter field="{{ column.field }}" type="text"></p-columnFilter>
+                        </th>
+                    </ng-container>
+                </ng-container>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="5">No data found.</td>
+            </tr>
+        </ng-template>
+
+        <ng-template let-data pTemplate="body">
+            <tr>
+                <td style="text-align: center;">
+                    <a [routerLink]="['/satellite', data.identifier]">
+                        <button (click)="sendDataToSatellitePage(data)" class="p-button"
+                                pButton pRipple style="background-color: #054A69; border-radius: 15px;" type="button"
+                        > Open
+                        </button>
+                    </a>
+                </td>
+                <td style="text-align: center;">
+                    <p-tableCheckbox [(selection)]="selectedSatelliteData" [value]="data"></p-tableCheckbox>
+                </td>
+                <td style="text-align: center;">
+                    <button [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'" [pRowToggler]="data"
+                            class="p-button-text p-button-rounded p-button-plain" pButton
+                            pRipple
+                            style="background-color: #054A69; color:white"
+                            type="button"></button>
+                </td>
+                <td style="text-align: center;">
+                    <button (click)="showSatelliteData(data)"
+                            class="p-button-rounded p-button-primary mr-2" icon="pi pi-eye" pButton pRipple
+                            style="background-color: #054A69"></button>
+                </td>
+                <ng-container *ngFor="let column of mainTableColumns">
+                    <ng-container *ngIf="column.field">
+                        <td style="text-align: center;">
+                            {{ data[column.field] }}
+                        </td>
+                    </ng-container>
+                </ng-container>
+            </tr>
+        </ng-template>
+        <ng-template let-data pTemplate="rowexpansion">
+            <ng-container *ngFor="let column of expansionColumns">
+                <tr>
+                    <td colspan="12">
+                        <div class="expanded-row">
+                            <strong>{{ column.header }}:&nbsp;&nbsp;&nbsp;&nbsp;</strong>{{ data[column.field] }}
+                        </div>
+                    </td>
+                </tr>
+            </ng-container>
+        </ng-template>
+
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                In total there are {{satellitesData ? satellitesData.length : 0 }} datas.
+            </div>
+        </ng-template>
+
+    </p-table>
+</div>
+
+
+<p-dialog [(visible)]="satelliteDataShowDialog" [contentStyle]="{height: '300px'}" [maximizable]="true" [modal]="true"
+          [resizable]="false" [style]="{width: '400px'}" appendTo="body" header="Satellite Details">
+    <div style="overflow-y: auto;">
+        <table class="vertical-table" width="350px">
+            <tbody>
+            <tr>
+                <td colspan="2">
+                    <img [src]="selectedSatelliteData?.url" height="150px" width="325px">
+                </td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr>
+                <td class="name">Name</td>
+                <td>{{selectedSatelliteData?.name}}</td>
+            </tr>
+            <tr>
+                <td class="identifier">Satellte ID</td>
+                <td>{{selectedSatelliteData?.identifier}}</td>
+            </tr>
+            <tr>
+                <td class="norad">NORAD ID</td>
+                <td>{{selectedSatelliteData?.norad}}</td>
+            </tr>
+            <tr>
+                <td class="website">Website</td>
+                <td>{{selectedSatelliteData?.website}}</td>
+            </tr>
+            <tr>
+                <td class="country">Country of Origin</td>
+                <td>{{selectedSatelliteData?.country}}</td>
+            </tr>
+            <tr>
+                <td class="status">Status</td>
+                <td>{{selectedSatelliteData?.status}}</td>
+            </tr>
+            <tr>
+                <td class="launched">Launch Date</td>
+                <td>{{selectedSatelliteData?.launched}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <ng-template pTemplate="footer">
+        <div class="actions">
+            <button (click)="selectedExportExcelForOneData()"
+                    label="Export Excel" pButton
+                    style="width: 120px; height: 30px; background-color: green;margin-top: 5px;" type="button"></button>
+            <button (click)="hideSatelliteShowDialog()"
+                    label="Cancel" pButton style="width: 80px; height: 30px; background-color: red;margin-top: 20px;"
+                    type="button"></button>
+        </div>
+    </ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

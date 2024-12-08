@@ -1,0 +1,23 @@
+<div style="display:flex;">
+    <div style="display: inline-flex;width: 30%;">
+        <div>
+        <span class="pi pi-home" routerLink=""
+              style="color: rgb(5,74,105);font-size: 18px;font-weight: 700;  cursor: pointer;margin-top: 3px;"></span>
+        </div>
+        <span class="page-title font-medium ml-2">/ TRANSMITTERS </span>
+    </div>
+    <div style="width: 42%; text-align: center;">
+        <button (click)="selectedButton = 0" [ngClass]="{'selected-button': selectedButton === 0}" [routerLink]="['/transmitters']" class="p-button mr-2" icon="bi bi-list-columns"
+                label="List"
+                pButton
+                pRipple
+                style="max-width: 100px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+        </button>
+        <button (click)="selectedButton = 1" [ngClass]="{'selected-button': selectedButton === 1}" [routerLink]="['/transmitters/spectrum']" class="p-button mr-2" icon="bi bi-file-bar-graph"
+                label="Spectrum"
+                pButton
+                pRipple
+                style="max-width: 120px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+        </button>
+    </div>
+</div>

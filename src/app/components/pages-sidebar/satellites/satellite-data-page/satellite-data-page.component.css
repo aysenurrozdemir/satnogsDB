@@ -1,0 +1,106 @@
+.page-title {
+    color: rgb(5, 74, 105);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.selected-button {
+    background-color: rgb(5, 74, 105) !important;
+    color: white !important;
+}
+
+
+.container-dashboard {
+    width: 95%;
+    margin-left: 2.5%;
+}
+
+.container-dashboard:hover {
+    cursor: pointer;
+    background-color: #f8f9fa;
+}
+
+.content-intro {
+    font-size: 19px;
+    font-weight: 600;
+    text-align: center;
+    align-items: center;
+    margin-left: 150px;
+    margin-right: 150px;
+    color: #84849A !important;
+    transition: background-color 0.3s ease;
+}
+
+.content-intro:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: white;
+    background-color: rgb(5, 74, 105);
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0C9A9A;
+    text-align: center;
+}
+
+
+.feature-group p {
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    transition: background-color 0.3s ease;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.vertical-table {
+    padding-top: 10px;
+}
+
+.vertical-table .header {
+    font-weight: bold;
+    background-color: blue;
+}
+
+.vertical-table td:first-child {
+    font-weight: bold;
+    background-color: #0c9a9a30;
+    border-radius: 10px;
+}
+
+.vertical-table td:not(:first-child) {
+    background-color: white;
+    font-weight: 500;
+}
+
+.vertical-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    width: 200px;
+}
+::ng-deep .p-card .p-card-body {
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 550px) {
+    .feature-group {
+        display: flex;
+        flex-direction: column;
+    }
+}

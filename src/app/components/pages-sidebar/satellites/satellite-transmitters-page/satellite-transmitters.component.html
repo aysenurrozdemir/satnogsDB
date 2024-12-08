@@ -1,0 +1,86 @@
+<p-toolbar class="col-12" styleClass="mb-4 toolbar-container">
+        <ng-template pTemplate="left">
+                <div style="display: inline-flex;">
+                        <span class="pi pi-home"
+                              routerLink=""
+                              style="color: rgb(5,74,105);font-size: 18px;font-weight: 700; cursor: pointer;"></span>
+                </div>
+                <span class="page-title font-medium ml-2">/ {{ satelliteData?.name }} ({{ satelliteData?.norad }}
+                        ) </span>
+        </ng-template>
+
+        <ng-template class=" col-xl-9 col-lg-9 col-md-12 col-sm-12 mb-4" pTemplate="right">
+                <button (click)="selectedButton = 0" [ngClass]="{'selected-button': selectedButton === 0}" [routerLink]="['/satellite', satelliteData?.identifier]" class="p-button mr-2" icon="pi pi-info-circle"
+                        label="Info"
+                        pButton
+                        pRipple
+                        style="max-width: 100px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+                </button>
+                <button (click)="selectedButton = 1" [ngClass]="{'selected-button': selectedButton === 1}" [routerLink]="['/satellite', satelliteData?.identifier, 'mapContent']" class="p-button mr-2" icon="pi pi-map-marker"
+                        label="Map"
+                        pButton
+                        pRipple
+                        style="max-width: 100px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+                </button>
+                <button (click)="selectedButton = 2;" [ngClass]="{'selected-button': selectedButton === 2}" [routerLink]="['/satellite', satelliteData?.identifier, 'transmitters']" class="p-button mr-2" icon="pi pi-wifi"
+                        label="Transmitters"
+                        pButton
+                        pRipple
+                        style="max-width: 130px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+                </button>
+                <button (click)="selectedButton = 3;" [ngClass]="{'selected-button': selectedButton === 3}" [routerLink]="['/satellite', satelliteData?.identifier, 'data']" class="p-button mr-2" icon="pi pi-database"
+                        label="Data"
+                        pButton
+                        pRipple
+                        style="max-width: 100px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+                </button>
+        </ng-template>
+</p-toolbar>
+<div class="container-dashboard">
+        <div style="text-align: center">
+                <div class="feature-group col-lg-12 col-md-6 col-sm-6" style="display: inline-flex;">
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                                <div class="col-12" style="text-align: center;">
+                                        <img [src]="satelliteData?.url" alt="img" class="img-icon">
+                                </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                                <div class="col-12" style="text-align: center">
+                                        <h2>{{ satelliteData?.name }} ({{ satelliteData?.norad }})</h2>
+                                </div>
+                                <div class="col-12">
+                                        <h3 class="title"> S Band Transmitter</h3>
+                                        <p-card>
+                                                <table class="vertical-table">
+                                                        <tbody>
+                                                        <tr>
+                                                                <td class="name">Type</td>
+                                                                <td>Transmitter</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="identifier">Downlink Mode</td>
+                                                                <td>FM</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="norad">Downlink Frequency</td>
+                                                                <td>252.250 MHz</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="altNames">Downlink Drifted</td>
+                                                                <td>2252.250 MHz</td>
+                                                        </tr>
+                                                        </tbody>
+                                                </table>
+                                                <p>Updated by hb9fxx and reviewed on 2024-01-20 22:57 by fredy</p>
+                                        </p-card>
+                                </div>
+                                <div class="col-12" style="display: inline-flex; justify-content: space-between;">
+                                        <button class="col-5" label="Copy UUID"
+                                                pButton pRipple style="background-color:#054A69; border-radius: 10px;"></button>
+                                        <button class="col-5" label="Citation"
+                                                pButton pRipple style="background-color:#054A69; border-radius: 10px;"></button>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>

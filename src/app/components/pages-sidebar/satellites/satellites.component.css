@@ -1,0 +1,152 @@
+.pi.pi-home {
+  color: blue;
+  font-size: 20px;
+}
+
+p-toolbar.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+p-toolbar.mb-4 .p-toolbar-group-left,
+p-toolbar.mb-4 .p-toolbar-group-right {
+  display: flex;
+  align-items: center;
+}
+
+.page-title {
+  color: rgb(5, 74, 105);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+p-toolbar.mb-4 .p-toolbar-group-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 2;
+}
+
+p-toolbar.mb-4 .p-toolbar-group-center > * {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container input {
+  padding-left: 2rem;
+  width: 100%;
+  background-color: #b9ced873;
+  border-radius: 10px;
+}
+
+
+.form-dialog {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.field {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.block {
+  display: block;
+}
+
+.actions {
+  width: 100%;
+}
+
+.actions button {
+  margin-left: 1rem;
+}
+
+input {
+  width: 100%;
+}
+
+::ng-deep .p-dropdown {
+  width: 100% !important;
+}
+
+.vertical-table {
+  padding-top: 10px;
+}
+
+.vertical-table .header {
+  font-weight: bold;
+  background-color: blue;
+}
+
+.vertical-table td:first-child {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.vertical-table td:not(:first-child) {
+  background-color: white;
+  font-weight: 500;
+}
+
+.vertical-table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.toolbar-container {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+::ng-deep .p-dialog .p-dialog-header {
+  background: #DFE9ED;
+  color: black;
+}
+
+::ng-deep .p-dialog .p-dialog-header .p-dialog-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+::ng-deep .p-dialog .p-dialog-footer button {
+  margin: 0;
+}
+
+::ng-deep .p-confirm-dialog .p-dialog-content {
+  padding-top: 20px;
+}
+
+::ng-deep .p-dialog .p-dialog-footer button {
+  margin-right: 0;
+}
+
+::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  text-align: center;
+  background-color: #054A69;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+::ng-deep .p-button.p-button-icon-only.p-button-rounded {
+  width: 2rem;
+  height: 2rem;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-body > tr > td {
+  text-align: center;
+  background-color: rgb(185 206 216) !important;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+:host ::ng-deep .p-multiselect {
+  border-radius: 10px;
+}

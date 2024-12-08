@@ -1,0 +1,149 @@
+<div class="dashboard-container">
+    <h2>Welcome to SatNOGS DB</h2>
+
+    <div class="card-container">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
+            <div class="card">
+                <p-orderList [listStyle]="{ 'max-height': '31rem' }" [value]="datas" filterBy="name"
+                             filterPlaceholder="Filter by name">
+                    <ng-template pTemplate="header">
+                        <div class="custom-header" style="text-align: center;">New Satellites</div>
+                    </ng-template>
+                    <ng-template let-data pTemplate="item">
+                        <p-card (click)="routeSatellite(data)">
+                            <div>
+                                <div style="display: flex; height: 25px; justify-content: space-between;align-items: center;">
+                                    <img [alt]="data.name" [src]="data.flag" class="shadow-2 flex-shrink-0 border-round"
+                                         style="width: 30px; height: 20px"/>
+                                    <p>{{data.name}}</p>
+                                    <img [alt]="data.name" [src]="data.image" class="w-4rem shadow-2 flex-shrink-0 border-round"
+                                         style="width: 20px; height: 35px"/>
+                                </div>
+                                <p-divider></p-divider>
+                                <div>
+                                    <ul class="custom-list">
+                                        <li><i class="custom-icon bi bi-broadcast-pin"></i>{{data.satelliteId}}</li>
+                                        <li><i class="custom-icon bi bi-wifi"></i>{{data.transmittersNo}}</li>
+                                        <li *ngIf="data.dataFrames === 0"><i
+                                                class="custom-icon bi bi-database-fill"></i>No Data
+                                        </li>
+                                        <li *ngIf="data.dataFrames !== 0"><i
+                                                class="custom-icon bi bi-database-fill"></i>{{data.dataFrames}}</li>
+                                        <li *ngIf="data.dataFrames !== 0"><i
+                                                class="custom-icon bi bi-clock"></i>{{data.latestDataTimeStamp}}</li>
+                                        <li *ngIf="data.dataFrames !== 0"><i
+                                                class="custom-icon bi bi-person-check"></i>{{data.latestDataSubmitter}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </p-card>
+                        <p-divider class="custom-divider"></p-divider>
+                    </ng-template>
+                </p-orderList>
+            </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
+            <div class="card">
+                <p-orderList [listStyle]="{ 'max-height': '31rem' }" [value]="datas" filterBy="name"
+                             filterPlaceholder="Filter by name">
+                    <ng-template pTemplate="header">
+                        <div class="custom-header" style="text-align: center;">Satellites Close To Decaying</div>
+                    </ng-template>
+                    <ng-template let-data pTemplate="item">
+                        <p-card (click)="routeSatellite(data)">
+                            <div>
+                                <div style="display: flex; height: 25px; justify-content: space-between;align-items: center;">
+                                    <img [alt]="data.name" [src]="data.flag" class="shadow-2 flex-shrink-0 border-round"
+                                         style="width: 30px; height: 20px"/>
+                                    <p>{{data.name}}</p>
+                                    <img [alt]="data.name" [src]="data.image" class="w-4rem shadow-2 flex-shrink-0 border-round"
+                                         style="width: 20px; height: 35px"/>
+                                </div>
+                                <p-divider></p-divider>
+                                <div>
+                                    <ul class="custom-list">
+                                        <li><i class="custom-icon bi bi-broadcast-pin"></i>{{data.satelliteId}}</li>
+                                        <li><i class="custom-icon bi bi-wifi"></i>{{data.transmittersNo}}</li>
+                                        <li *ngIf="data.dataFrames === 0"><i
+                                                class="custom-icon bi bi-database-fill"></i>No Data
+                                        </li>
+                                        <li *ngIf="data.dataFrames !== 0"><i
+                                                class="custom-icon bi bi-database-fill"></i>{{data.dataFrames}}</li>
+                                        <li *ngIf="data.dataFrames !== 0"><i
+                                                class="custom-icon bi bi-clock"></i>{{data.latestDataTimeStamp}}</li>
+                                        <li *ngIf="data.dataFrames !== 0"><i
+                                                class="custom-icon bi bi-person-check"></i>{{data.latestDataSubmitter}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </p-card>
+                        <p-divider class="custom-divider"></p-divider>
+                    </ng-template>
+                </p-orderList>
+            </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
+            <div class="card">
+                <p-orderList [listStyle]="{ 'max-height': '31rem' }" [value]="datas" filterBy="name"
+                             filterPlaceholder="Filter by name">
+                    <ng-template pTemplate="header">
+                        <div class="custom-header" style="text-align: center;">Latest Data</div>
+                    </ng-template>
+                    <ng-template let-data pTemplate="item">
+                        <p-card (click)="routeSatellite(data)">
+                            <div>
+                                <div style="display: flex; height: 25px; justify-content: space-between;align-items: center;">
+                                    <img [alt]="data.name" [src]="data.flag" class="shadow-2 flex-shrink-0 border-round"
+                                         style="width: 30px; height: 20px"/>
+                                    <p>{{data.name}}</p>
+                                    <img [alt]="data.name" [src]="data.image" class="w-4rem shadow-2 flex-shrink-0 border-round"
+                                         style="width: 20px; height: 35px"/>
+                                </div>
+                                <p-divider></p-divider>
+                                <div>
+                                    <ul class="custom-list">
+                                        <li><i class="custom-icon bi bi-broadcast-pin"></i>{{data.satelliteId}}</li>
+                                        <li><i class="custom-icon bi bi-wifi"></i>{{data.transmittersNo}}</li>
+                                        <li *ngIf="data.dataFrames === 0"><i
+                                                class="custom-icon bi bi-database-fill"></i>No Data
+                                        </li>
+                                        <li *ngIf="data.dataFrames !== 0"><i
+                                                class="custom-icon bi bi-database-fill"></i>{{data.dataFrames}}</li>
+                                        <li *ngIf="data.dataFrames !== 0"><i
+                                                class="custom-icon bi bi-clock"></i>{{data.latestDataTimeStamp}}</li>
+                                        <li *ngIf="data.dataFrames !== 0"><i
+                                                class="custom-icon bi bi-person-check"></i>{{data.latestDataSubmitter}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </p-card>
+                        <p-divider class="custom-divider"></p-divider>
+                    </ng-template>
+                </p-orderList>
+            </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
+            <div class="card">
+                <p-orderList [listStyle]="{ 'max-height': '29.8rem' }" [value]="datasContributor" filterBy="name"
+                             filterPlaceholder="Filter by name">
+                    <ng-template pTemplate="header">
+                        <div class="custom-header" style="text-align: center;">Recent Contributors</div>
+                        <div style="text-align: center;">Data - Last 24h</div>
+                    </ng-template>
+                    <ng-template let-data pTemplate="item">
+                        <div>
+                            <ul class="custom-list-contributor">
+                                <li><i class="custom-icon bi bi-person-check"></i>{{data.contributorName}}
+                                    - {{data.framesNo}}</li>
+                            </ul>
+                        </div>
+                        <p-divider class="custom-divider"></p-divider>
+                    </ng-template>
+                </p-orderList>
+            </div>
+        </div>
+    </div>
+</div>

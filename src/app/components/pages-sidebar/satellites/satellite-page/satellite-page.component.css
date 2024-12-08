@@ -1,0 +1,180 @@
+.page-title{
+    color: rgb(5,74,105);
+    font-size: 18px;
+    font-weight: 800;
+}
+.selected-button {
+    background-color: rgb(5,74,105)!important;
+    color: white !important;
+}
+
+.container-dashboard {
+    width: 95%;
+    margin-left: 2.5%;
+}
+
+.container-dashboard:hover{
+    cursor: pointer;
+    background-color: #f8f9fa;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: white;
+    background-color: rgb(5,74,105);
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.content-intro {
+    font-size: 19px;
+    font-weight: 600;
+    text-align: center;
+    align-items: center;
+    margin-left: 150px;
+    margin-right: 150px;
+    color: #84849A!important;
+    transition: background-color 0.3s ease;
+}
+.content-intro:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+.image {
+    text-align: center;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0C9A9A;
+    text-align: center;
+}
+
+.priceSize {
+    font-size: 30px;
+    font-weight: bold;
+    color: #0C9A9A;
+}
+
+.login-btn {
+    margin-right: 8px;
+    margin-bottom: 12px;
+}
+
+.login-container {
+    justify-content: end;
+}
+
+.landing-slider {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.landing-desc {
+    margin-left: 10%;
+    padding: 5%;
+}
+
+.title-bottom {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 55px;
+    color: #0C9A9A;
+}
+
+.img-icon {
+    width: 310px;
+    height: 350px;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.img-filter-icon {
+    width: 300px;
+    height: 250px;
+}
+
+.feature-group p{
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    transition: background-color 0.3s ease;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.header-about {
+    font-size: 40px;
+    font-weight: 700;
+    color: rgb(5, 74, 105);
+    text-align: center;
+    margin-top: 50px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.header-about:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+.vertical-table {
+    padding-top: 10px;
+}
+.vertical-table .header {
+    font-weight: bold;
+    background-color: blue;
+}
+
+.vertical-table td:first-child {
+    font-weight: bold;
+    background-color: #0c9a9a30;
+    border-radius: 10px;
+}
+
+.vertical-table td:not(:first-child) {
+    background-color: white;
+    font-weight: 500;
+}
+
+.vertical-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    width: 200px;
+}
+::ng-deep .p-card .p-card-body {
+    padding: 1rem;
+    border-radius: 10px;
+}
+@media screen and (max-width: 792px) {
+    .feature-group {
+        flex-direction: column;
+    }
+    .network-button{
+        background-color:#054A69;
+        border-radius: 10px;
+        margin-left: 130px!important;
+    }
+}
+@media screen and (max-width: 460px) {
+    :host ::ng-deep .p-button{
+        width: 60px!important;
+        display:flex;
+        flex-direction: column;
+        font-size: 8px;
+        font-weight: 500;
+    }
+    .container-dashboard {
+        width: 100% !important;
+        margin-left: 0!important;
+    }
+}

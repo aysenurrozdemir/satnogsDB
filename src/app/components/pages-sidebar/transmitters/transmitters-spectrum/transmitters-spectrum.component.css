@@ -1,0 +1,25 @@
+@media screen and (max-width: 460px) {
+    :host ::ng-deep .p-button {
+        width: 60px !important;
+        display: flex;
+        flex-direction: column;
+        font-size: 8px;
+        font-weight: 500;
+    }
+
+    .container-dashboard {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+}
+
+.selected-button {
+    background-color: rgb(5, 74, 105) !important;
+    color: white !important;
+}
+
+.page-title {
+    color: rgb(5, 74, 105);
+    font-size: 18px;
+    font-weight: 800px;
+}

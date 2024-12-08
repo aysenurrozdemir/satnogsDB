@@ -1,0 +1,37 @@
+<p-toolbar class="col-12" styleClass="mb-4 toolbar-container">
+    <ng-template pTemplate="left">
+        <div style="display: inline-flex;">
+            <span class="pi pi-home" routerLink=""
+                  style="color: rgb(5,74,105);font-size: 18px;font-weight: 700; cursor: pointer;"></span>
+        </div>
+        <span class="page-title font-medium ml-2">/ {{ satelliteData?.name }} ({{ satelliteData?.norad }}) </span>
+    </ng-template>
+
+    <ng-template class=" col-xl-9 col-lg-9 col-md-12 col-sm-12 mb-4" pTemplate="right">
+        <button (click)="selectedButton = 0" [ngClass]="{'selected-button': selectedButton === 0}" [routerLink]="['/satellite', satelliteData?.identifier]" class="p-button mr-2" icon="pi pi-info-circle"
+                label="Info"
+                pButton
+                pRipple
+                style="max-width: 100px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+        </button>
+        <button (click)="selectedButton = 1" [ngClass]="{'selected-button': selectedButton === 1}" [routerLink]="['/satellite', satelliteData?.identifier, 'mapContent']" class="p-button mr-2" icon="pi pi-map-marker"
+                label="Map"
+                pButton
+                pRipple
+                style="max-width: 100px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+        </button>
+        <button (click)="selectedButton = 2;" [ngClass]="{'selected-button': selectedButton === 2}" [routerLink]="['/satellite', satelliteData?.identifier, 'transmitters']" class="p-button mr-2" icon="pi pi-wifi"
+                label="Transmitters"
+                pButton
+                pRipple
+                style="max-width: 130px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+        </button>
+        <button (click)="selectedButton = 3;" [ngClass]="{'selected-button': selectedButton === 3}" [routerLink]="['/satellite', satelliteData?.identifier, 'data']" class="p-button mr-2" icon="pi pi-database"
+                label="Data"
+                pButton
+                pRipple
+                style="max-width: 100px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+        </button>
+    </ng-template>
+</p-toolbar>
+<h2> map is working</h2>

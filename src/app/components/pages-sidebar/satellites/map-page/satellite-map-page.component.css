@@ -1,0 +1,10 @@
+.page-title{
+    color: rgb(5,74,105);
+    font-size: 18px;
+    font-weight: 800;
+}
+.selected-button {
+    background-color: rgb(5,74,105)!important;
+    color: white !important;
+}
+

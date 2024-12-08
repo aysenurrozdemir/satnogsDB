@@ -1,0 +1,32 @@
+<ul class="layout-menu">
+
+    <li>
+        <img src="assets/satnogs-assets/icon-space.png"
+             style="height: 90px; width: 200px;margin-left: 1rem; margin-bottom: 1rem"/>
+    </li>
+    <li style="display: inline-flex">
+        <input [(ngModel)]="searchTerm" class="w-full" pInputText placeholder="Search Name or Id" type="text"/>
+        <button (click)="search()" class="p-button-search" icon="pi pi-search" iconPos="right" pButton
+                type="button"></button>
+    </li>
+
+
+    <ng-container *ngFor="let item of model; let i = index;">
+        <li [index]="i" [item]="item" [root]="true" app-menuitem></li>
+        <li *ngIf="item.separator" class="menu-separator"></li>
+    </ng-container>
+
+    <li (click)="toggleSearchBar()" *ngIf="!showList" class="hide-list">
+        <i class="pi pi-link" style="padding-right:10px"></i>
+        SatNOGS Links<i class="pi pi-chevron-left" style="padding-left:10px"></i>
+    </li>
+    <li (click)="toggleSearchBar()" *ngIf="showList" class="hide-list-after">
+        <i class="pi pi-chevron-right"></i>
+    </li>
+    <div *ngIf="showList" style="padding-top: 80px">
+        <ng-container *ngFor="let item of modelHide; let i = index;">
+            <li [index]="i" [item]="item" [root]="true" app-menuitem></li>
+            <li *ngIf="item.separator" class="menu-separator"></li>
+        </ng-container>
+    </div>
+</ul>

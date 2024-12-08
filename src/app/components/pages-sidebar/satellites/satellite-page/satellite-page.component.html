@@ -1,0 +1,132 @@
+<p-toolbar class="feature-group col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4" styleClass="mb-4 toolbar-container">
+    <ng-template class=" col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4" pTemplate="left">
+        <div style="display: inline-flex;">
+            <span class="pi pi-home" routerLink=""
+                  style="color: rgb(5,74,105);font-size: 18px;font-weight: 700; cursor: pointer;"></span>
+        </div>
+        <span class="page-title font-medium ml-2">/ {{ satelliteData?.name }} ({{ satelliteData?.norad }}) </span>
+    </ng-template>
+
+    <ng-template class=" col-xl-9 col-lg-9 col-md-12 col-sm-12 mb-4" pTemplate="right">
+        <button (click)="selectedButton = 0" [ngClass]="{'selected-button': selectedButton === 0}"
+                [routerLink]="['/satellite', satelliteData?.identifier]" class="p-button mr-2" icon="pi pi-info-circle"
+                label="Info"
+                pButton
+                pRipple
+                style="max-width: 100px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+        </button>
+        <button (click)="selectedButton = 1" [ngClass]="{'selected-button': selectedButton === 1}"
+                [routerLink]="['/satellite', satelliteData?.identifier, 'mapContent']" class="p-button mr-2"
+                icon="pi pi-map-marker"
+                label="Map"
+                pButton
+                pRipple
+                style="max-width: 100px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+        </button>
+        <button (click)="selectedButton = 2;" [ngClass]="{'selected-button': selectedButton === 2}"
+                [routerLink]="['/satellite', satelliteData?.identifier, 'transmitters']" class="p-button mr-2"
+                icon="pi pi-wifi"
+                label="Transmitters"
+                pButton
+                pRipple
+                style="max-width: 130px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+        </button>
+        <button (click)="selectedButton = 3;" [ngClass]="{'selected-button': selectedButton === 3}"
+                [routerLink]="['/satellite', satelliteData?.identifier, 'data']" class="p-button mr-2"
+                icon="pi pi-database"
+                label="Data"
+                pButton
+                pRipple
+                style="max-width: 100px; background-color: #d3c291; color: rgb(5,74,105); border-radius: 5px;">
+        </button>
+    </ng-template>
+</p-toolbar>
+
+
+<div class="container-dashboard">
+    <div class="feature-group col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
+        <h2>{{ satelliteData?.name }} ({{ satelliteData?.norad }})</h2>
+        <br>
+        <div class="content-intro">
+            <p>{{satelliteData?.description}}</p>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <div class="feature-group col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4" style="display: inline-flex;">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="col-12">
+                    <h3 class="title"> Mission Information</h3>
+                    <p-card>
+                        <table class="vertical-table">
+                            <tbody>
+                            <tr>
+                                <td class="name">Name</td>
+                                <td>{{satelliteData?.name}}</td>
+                            </tr>
+                            <tr>
+                                <td class="identifier">Satellte ID</td>
+                                <td>{{satelliteData?.identifier}}</td>
+                            </tr>
+                            <tr>
+                                <td class="norad">NORAD ID</td>
+                                <td>{{satelliteData?.norad}}</td>
+                            </tr>
+                            <tr>
+                                <td class="altNames">Alternate Names</td>
+                                <td>{{satelliteData?.altNames}}</td>
+                            </tr>
+                            <tr>
+                                <td class="country">Country of Origin</td>
+                                <td>{{satelliteData?.country}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </p-card>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="col-12" style="text-align: center;">
+                    <img [src]="satelliteData?.url" alt="img" class="img-icon">
+                </div>
+                <button [routerLink]="'https://network.satnogs.org/observations/?norad=40143'" class="network-button"
+                        label="Network Observations" pButton pRipple
+                        style="background-color:#054A69; border-radius: 10px;margin-left: 100px"></button>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="col-12">
+                    <h3 class="title"> Mission Timeline</h3>
+                    <p-card>
+                        <table class="vertical-table">
+                            <tbody>
+                            <tr>
+                                <td class="launched">Launch Date</td>
+                                <td>{{satelliteData?.launched}}</td>
+                            </tr>
+                            <tr>
+                                <td class="deployed">Deploy DateD</td>
+                                <td>{{satelliteData?.deployed}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </p-card>
+                </div>
+                <div class="col-12">
+                    <h3 class="title">Status</h3>
+                    <p-card>
+                        <table class="vertical-table">
+                            <tbody>
+                            <tr>
+                                <td class="status">Status</td>
+                                <td>{{satelliteData?.status}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p>Satellite is in orbit and {{satelliteData?.status}}</p>
+                    </p-card>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
